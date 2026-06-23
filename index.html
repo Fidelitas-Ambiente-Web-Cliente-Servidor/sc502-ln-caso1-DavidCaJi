@@ -1,28 +1,164 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Restaurante Ficticio</title>
 
-  <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     rel="stylesheet"
   />
 
-  <!-- Google Fonts -->
+
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
     rel="stylesheet"
   />
-
-  <!-- Estilos propios -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+
+  <header class="encabezado-principal">
+    <div class="container text-center">
+      <h1>La Mesa Dorada</h1>
+      <p>Restaurante ficticio de cocina elegante y reservas en linea.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="seccion-menu">
+      <div class="container">
+
+        <div class="text-center mb-4">
+          <h2>Menu del Restaurante</h2>
+          <p>Explora nuestras entradas, platos fuertes y postres.</p>
+        </div>
+
+        <div class="filtros-menu text-center mb-4">
+          <button class="btn-filtro activo" data-categoria="Todos">Todos</button>
+          <button class="btn-filtro" data-categoria="Entrada">Entradas</button>
+          <button class="btn-filtro" data-categoria="Plato Fuerte">Platos Fuertes</button>
+          <button class="btn-filtro" data-categoria="Postre">Postres</button>
+        </div>
+
+        <div id="contenedor-menu" class="row g-4"></div>
+
+      </div>
+    </section>
+
+    <section class="seccion-reservas">
+      <div class="container">
+
+        <div class="text-center mb-4">
+          <h2>Formulario de Reservas</h2>
+          <p>Completa tus datos para registrar una reserva.</p>
+        </div>
+
+        <div class="row g-4">
+
+          <div class="col-12 col-lg-5">
+            <form id="form-reserva" class="formulario-reserva">
+
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" id="nombre" class="form-control" />
+                <div id="error-nombre" class="error-campo"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="correo" class="form-label">Correo electronico</label>
+                <input type="email" id="correo" class="form-control" />
+                <div id="error-correo" class="error-campo"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha de reserva</label>
+                <input type="date" id="fecha" class="form-control" />
+                <div id="error-fecha" class="error-campo"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="hora" class="form-label">Hora</label>
+                <select id="hora" class="form-select">
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="personas" class="form-label">Numero de personas</label>
+                <input type="number" id="personas" class="form-control" min="1" max="20" />
+                <div id="error-personas" class="error-campo"></div>
+              </div>
+
+              <div class="mb-3">
+                <label for="comentarios" class="form-label">Comentarios</label>
+                <textarea id="comentarios" class="form-control" rows="4"></textarea>
+              </div>
+
+              <button type="submit" id="btn-reserva" class="btn-reserva" disabled>
+                Enviar reserva
+              </button>
+
+              <div id="mensaje-confirmacion" class="mensaje-confirmacion"></div>
+
+            </form>
+          </div>
+
+          <div class="col-12 col-lg-7">
+
+            <div class="tabla-contenedor">
+              <h3>Reservas registradas</h3>
+
+              <div class="table-responsive">
+                <table class="table table-bordered align-middle">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Correo</th>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                      <th>Personas</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="tabla-reservas"></tbody>
+                </table>
+              </div>
+
+              <div id="resumen-reservas" class="resumen-reservas">
+                <p>Total de reservas registradas: 0</p>
+                <p>Total de personas esperadas: 0</p>
+                <p>Reserva con mayor numero de personas: Ninguna</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie-pagina">
+    <div class="container text-center">
+      <p>La Mesa Dorada | Restaurante ficticio</p>
+      <p>Proyecto individual - Ambiente Web Cliente Servidor</p>
+    </div>
+  </footer>
 
   <script src="js/app.js"></script>
 
 </body>
+
 </html>
